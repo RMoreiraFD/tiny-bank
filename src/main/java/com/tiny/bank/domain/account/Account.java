@@ -156,6 +156,10 @@ public class Account {
         Objects.requireNonNull(amount, "Amount shouldn't be null");
         Objects.requireNonNull(recipient, "Recipient shouldn't be null");
 
+        if (this.equals(recipient)) {
+            throw new IllegalArgumentException("Attempting to transfer within the same account");
+        }
+
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("The amount being deposited is lower or equal to 0");
         }
