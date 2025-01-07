@@ -32,7 +32,7 @@ public class Account {
     private final UUID accountId;
     private final Set<TransactionRecord> transactions;
 
-    private BigDecimal balance;
+    private volatile BigDecimal balance;
 
     public Account() {
         this.accountId = UUID.randomUUID();
